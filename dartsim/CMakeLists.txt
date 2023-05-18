@@ -107,9 +107,20 @@ foreach(test ${tests})
   add_dependencies(${test} ${dartsim_plugin})
 endforeach()
 
-foreach(test UNIT_FindFeatures_TEST UNIT_RequestFeatures_TEST)
+foreach(test UNIT_FindFeatures_TEST UNIT_RequestFeatures_TEST UNIT_PluginLoader1_TEST)
   if(TARGET ${test})
     target_compile_definitions(${test} PRIVATE
-      "dartsim_plugin_LIB=\"$<TARGET_FILE:${dartsim_plugin}>\"")
+      "dartsim_plugin_LIB=\"$<TARGET_FILE:${dartsim_plugin}>\""
+      "GZ_PHYSICS_RESOURCE_DIR=\"${GZ_PHYSICS_RESOURCE_DIR}\""
+    )
+
+    message("dartsim_plugin: ${dartsim_plugin}")
+    
+    target_link_libraries(${test}
+      ${dartsim_plugin}
+    )
+
+    add_dependencies(${test} ${dartsim_plugin})
+
   endif()
 endforeach()

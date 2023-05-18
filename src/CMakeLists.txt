@@ -17,3 +17,10 @@ if(TARGET UNIT_FindFeatures_TEST)
   target_link_libraries(UNIT_FindFeatures_TEST
     gz-plugin${GZ_PLUGIN_VER}::loader)
 endif()
+
+if(TARGET UNIT_PluginLoader1_TEST)
+  message("dartsim_plugin: ${dartsim_plugin}")
+  target_link_libraries(UNIT_PluginLoader1_TEST
+    ${dartsim_plugin}
+    gz-plugin${GZ_PLUGIN_VER}::loader)
+endif()

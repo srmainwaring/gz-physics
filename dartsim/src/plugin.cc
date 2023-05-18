@@ -46,7 +46,18 @@ struct DartsimFeatures : FeatureList<
   ShapeFeatureList,
   SimulationFeatureList,
   WorldFeatureList
-> { };
+>
+{
+  public: DartsimFeatures()
+  {
+    std::cerr << "Creating DartsimFeatures\n";
+  }
+
+  public: ~DartsimFeatures()
+  {
+    std::cerr << "Destroying DartsimFeatures\n";
+  }
+};
 
 class Plugin :
     public virtual Base,
@@ -60,7 +71,18 @@ class Plugin :
     public virtual SDFFeatures,
     public virtual ShapeFeatures,
     public virtual SimulationFeatures,
-    public virtual WorldFeatures { };
+    public virtual WorldFeatures
+  {
+    public: Plugin()
+    {
+      std::cerr << "Creating Dartsim Plugin\n";
+    }
+ 
+    public: ~Plugin()
+    {
+      std::cerr << "Destroying Dartsim Plugin\n";
+    }
+  };
 
 GZ_PHYSICS_ADD_PLUGIN(Plugin, FeaturePolicy3d, DartsimFeatures)
 

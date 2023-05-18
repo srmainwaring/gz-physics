@@ -66,9 +66,13 @@ gz_find_package(EIGEN3 REQUIRED)
 gz_find_package(sdformat13
   REQUIRED_BY sdf dartsim tpe bullet)
 
+unset(TINYXML2_LIBRARIES)
+  
 #--------------------------------------
 # Find dartsim for the dartsim plugin wrapper
 gz_find_package(DART
+  PATH
+    /Users/rhys/Code/osrf/gz_garden_ws/install
   COMPONENTS
     collision-bullet
     collision-ode

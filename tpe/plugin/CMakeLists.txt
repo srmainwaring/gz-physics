@@ -70,3 +70,11 @@ foreach(test ${tests})
     "GZ_PHYSICS_RESOURCE_DIR=\"${GZ_PHYSICS_RESOURCE_DIR}\"")
 
 endforeach()
+
+# foreach(test UNIT_FindFeatures_TEST UNIT_RequestFeatures_TEST)
+#   if(TARGET ${test})
+#     target_compile_definitions(${test} PRIVATE
+#       "tpe_plugin_LIB=\"$<TARGET_FILE:${tpe_plugin}>\""
+#     )
+#   endif()
+# endforeach()
